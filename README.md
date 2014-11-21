@@ -5,8 +5,6 @@ An experimental format imitating old film leaders with content slides.
 
 (GIF preview coming soon)
 
-[See it in action](http://christophercarman.com/samples/countdown)
-
 
 ## Inspiration
 
