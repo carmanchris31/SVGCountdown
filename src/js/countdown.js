@@ -4,7 +4,7 @@
   function getData() {
     var w = $('.countdown-wrapper').width(),
         h = $(window).height(),
-        numSlides = $(".slides .slide").size(),
+        numSlides = $(".slides .slide").length,
         // Clamp scrollY to overflow values from elastic scrolling
         scrollY = Math.min( Math.max( $(window).scrollTop(), 0 ), h * (numSlides - 1) ),
         dy = scrollY % h,
@@ -28,13 +28,13 @@
     ;
 
   // Convert slide height to full circle (radians)
-  var arcScale = d3.scale.linear()
+  var arcScale = d3.scaleLinear()
     .domain([0, data[0].h])
     .range([0, 2 * Math.PI])
     ;
 
   // Arc generator to produce sweep area
-  var arc = d3.svg.arc()
+  var arc = d3.arc()
     .innerRadius(0)
     // Make outer radius the distance from center to the corner to ensure coverage
     .outerRadius( Math.sqrt( Math.pow(data[0].w,2) + Math.pow(data[0].h,2) ) )
@@ -43,7 +43,7 @@
     .endAngle(function(d){return arcScale(d.dy);});
 
   // Simple line generator for croshairs
-  var simpleLine = d3.svg.line();
+  var simpleLine = d3.line();
 
 
   //** Elements **//

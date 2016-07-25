@@ -14,7 +14,7 @@ $cntdwn-dark: 		hsl(0,0,15%);
 // Slides provide tinting
 $adjust-hue-amount: 70;
 
-$slide-colors: fade-out(hsl(210,70%,70%),.80);
+$slide-colors: fade-out(hsl(210,70%,70%), .80);
 $slide-colors: append($slide-colors, adjust-hue(nth($slide-colors,1), $adjust-hue-amount*2), comma);
 $slide-colors: append($slide-colors, adjust-hue(nth($slide-colors,2), $adjust-hue-amount*-1), comma);
 $slide-colors: append($slide-colors, adjust-hue(nth($slide-colors,3), $adjust-hue-amount*2), comma);

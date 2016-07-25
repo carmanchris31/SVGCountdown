@@ -1,6 +1,6 @@
 // Initialize plugins
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
@@ -10,13 +10,16 @@ var gulp = require('gulp'),
 // Compile SASS
 gulp.task('countdown-sass', function() {
   return gulp.src('src/scss/countdown.scss')
-    .pipe(sass({ style: 'compressed' }))
+    .pipe(sass({
+      style: 'compressed'
+      }))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions']
+      browsers: ['last 2 versions'],
+      cascade: false
       }))
     .pipe(rename({
-      extname:'.min.css'}
-      ))
+      extname:'.min.css'
+      }))
     .pipe(gulp.dest('dist/assets/css'))
     .pipe(livereload())
     ;
